@@ -23,4 +23,15 @@ class Student implements WithId {
     def getAt(Integer index) {
         index == 0 ? name : surname
     }
+
+    def methodMissing(String name2, Object arguments){
+        println "missing method $name2 is invoked $arguments"
+        def field = name2 - "findBy"
+        println "select * from Student where $field = ${arguments[0]}"
+    }
+
+    def propertyMissing(String name2){
+        println "missing property $name2"
+        "default value"
+    }
 }
