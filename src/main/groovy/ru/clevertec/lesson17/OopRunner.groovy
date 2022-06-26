@@ -26,6 +26,12 @@ class OopRunner {
 //        println listNames2
 //        String.mixin(OopRunner.class)
 //        "Ivan".printStr()
+        Student student4 = Student.builder()
+        .name("Pavel")
+        .surname("Petrov")
+        .age(29)
+        .build()
+        println student4
     }
 
 //    static def printStr(String self){
