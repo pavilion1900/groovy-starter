@@ -8,19 +8,27 @@ class OopRunner {
 //        println student["name"]
 //        println student.@name
 
-        Student student2 = new Student([name: "Petr", surname: "Petrov", age: 25])
-        println student2
+        Student student2 = new Student([name: "Petr", surname: "Petrov", age: 25, id: 222])
+//        println student2
+
+        student2.properties.each { println it}
 
         Student student3 = [name: "Max", surname: "Black", age: 34]
-        println student3
+//        println student3
 
         def (name, surname) = student3
-        println name
-        println surname
+//        println name
+//        println surname
 
         List<String> listNames = [student2, student3].collect { it.name }
-        println listNames
+//        println listNames
         List<String> listNames2 = [student2, student3]*.name
-        println listNames2
+//        println listNames2
+//        String.mixin(OopRunner.class)
+//        "Ivan".printStr()
     }
+
+//    static def printStr(String self){
+//        println "It's mixin $self"
+//    }
 }
