@@ -24,14 +24,29 @@ class Student implements WithId {
         index == 0 ? name : surname
     }
 
-    def methodMissing(String name2, Object arguments){
+    def methodMissing(String name2, Object arguments) {
         println "missing method $name2 is invoked $arguments"
         def field = name2 - "findBy"
 //        println "select * from Student where $field = ${arguments[0]}"
     }
 
-    def propertyMissing(String name2){
+    def propertyMissing(String name2) {
         println "missing property $name2"
         "default value"
+    }
+
+    def getInfo() {
+        Closure closure = {
+            println thisObject
+            println owner
+            println delegate
+            Closure second = {
+                println thisObject
+                println owner
+                println delegate
+            }
+            second()
+        }
+        closure
     }
 }
